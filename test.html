@@ -1,13 +1,24 @@
+<html>
+<head>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
+	
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+	
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.7.12/xlsx.min.js"></script>
+	
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"> </script>
+	
+	<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="C:/Users/nandhini.sureshkumar/Documents/ocpuwebhook/Inst/www/opencpu-0.5.js"></script>
 <script>
 //because read.csv is in utils
-ocpu.seturl("//public.opencpu.org/ocpu/library/utils/R")
+//ocpu.seturl("https://public.opencpu.org/ocpu/library/utils/R")
 
 //actual handler
-$(document).ready(function(){
-$("#submitbutton").click(function(){
-
+function ExportToTable() {  
     //arguments
-    var myfile = $("#csvfile")[0].files[0];
+    var myfile = $("#excelfile")[0].files[0];
         
     if(!myfile){
         alert("No file selected.");
@@ -35,14 +46,21 @@ $("#submitbutton").click(function(){
     req.always(function(){
         $("#submitbutton").removeAttr("disabled")
     });        
-});
-});
+};
+
 </script>
+
+
+
+<body>
 <h1>Uploading a CSV File</h1>
+<input type="file" id="excelfile" />  
 
-<b>CSV File</b> <input type="file" id="csvfile"> 
-<br />
-
-<br />
-<button id="submitbutton" type="button">read.csv</button>
-<pre><code id="output"></code></pre>
+	<button type="submit" onClick="ExportToTable()">Export </button>
+   <a href="#" onclick="debugger; alert('this is inline JS');return false;">Click</a>
+      <br />  
+      <br />  
+   <table id="exceltable">  
+</table> 
+</body>
+</html>
